@@ -19,6 +19,6 @@ app.use("/test");
 app.listen(3000,()=>{
     console.log("Server Running");
 });
-console.log("fdaslfjdsfjdslfjdfdkjfksdjfkdsjfhdjfhdsfds");
+
 
 // testing..-----
