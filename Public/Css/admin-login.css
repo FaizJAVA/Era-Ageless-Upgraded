@@ -90,10 +90,10 @@
       }
       button{
           margin-top: 50px;
-          width: 100%;
+          width: 30%;
           background-color: #ffffff;
           color: #080710;
-          padding: 15px 0;
+          padding: 10px 0;
           font-size: 18px;
           font-weight: 600;
           border-radius: 5px;
@@ -120,5 +120,8 @@
       }
       .social i{
         margin-right: 4px;
+      }
+      #btn:hover{
+          background-color:green;
       }
       /* </style> */
