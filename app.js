@@ -15,7 +15,10 @@ app.use(express.static(path.join(__dirname,'Public')));
 
 app.use("/admin",admin);
 app.use("/category",category);
-
+app.use("/test");
 app.listen(3000,()=>{
     console.log("Server Running");
 });
+console.log("fdaslfjdsfjdslfjdfdkjfksdjfkdsjfhdjfhdsfds");
+
+// testing..-----
