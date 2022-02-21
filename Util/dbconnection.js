@@ -7,3 +7,5 @@ const pool=mysql.createPool({
     password:'root@123',
     database:'Era_Ageless'
 });
+
+module.exports = pool;
