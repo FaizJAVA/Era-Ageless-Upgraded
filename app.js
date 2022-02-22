@@ -5,12 +5,14 @@ const admin = require("./Routes/admin.route");
 const session = require("express-session");
 const category = require("./Routes/category.route");
 const userRoute=require('./Routes/user.route');
+const fileUpload = require("express-fileupload");
 const app=express();
 
 app.set('view engine','ejs');
 app.use(session({
     secret : "hellotherewearehere"
-}))
+}));
+app.use(fileUpload());
 app.use(bodyparser.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname,'Public')));
 
@@ -22,5 +24,3 @@ app.listen(3000,()=>{
     console.log("Server Running");
 });
 
-
-// testing..-----

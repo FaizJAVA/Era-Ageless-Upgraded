@@ -13,6 +13,7 @@ module.exports = class Admin{
                     let sql = "select * from admin where email=? and password = ?";
                     con.query(sql,[this.email,this.password],(err,result)=>{
                         err ? reject(err) : resolve(result);
+                        con.release();
                     });
                 }
             })
