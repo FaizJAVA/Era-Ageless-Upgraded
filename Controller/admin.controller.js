@@ -1,4 +1,3 @@
-const res = require("express/lib/response");
 const Admin = require("../Model/adminmodel");
 exports.loginPost = (req,res)=>{
     let admin = new Admin(req.body.email,req.body.password);
