@@ -1,4 +1,3 @@
-const e = require("express");
 const pool = require("../Util/dbconnection");
 module.exports = class Category {
     constructor(categoryName,categoryImage) {
@@ -13,9 +12,13 @@ module.exports = class Category {
                     reject(err);
                 else
                 {
-                    let sql = "insert into category"
+                    let sql = "insert into category(name,image) values(?,?)";
+                    con.query(sql,[this.categoryName,this.categoryImage],(err,result)=>{
+                        err ? reject(err) : resolve(result);
+                        con.release();
+                    });
                 }
-            })
-        })
+            });
+        });
     }
 }
