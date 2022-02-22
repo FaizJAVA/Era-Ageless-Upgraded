@@ -15,6 +15,7 @@ exports.addCategoryPost = (req, res, next) => {
                 let cat = new Category();
                 cat.categoryName = req.body.categoryName;
                 cat.categoryImage = fileName;
+                cat.gender = req.body.gender;
                 cat.save()
                 .then((result)=>{
                     res.redirect("/admin/dashboard");
