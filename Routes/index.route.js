@@ -10,3 +10,4 @@ routeIndex.get('/categories',indexControl.CategoryPage);
 routeIndex.get('/reviews',indexControl.ReviewPage);
 
 module.exports=routeIndex;
+//testing....
