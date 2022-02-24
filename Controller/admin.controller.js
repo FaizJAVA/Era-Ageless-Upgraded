@@ -1,3 +1,36 @@
+
+const startconnection= require("../Util/dbconnection");
+const session = require('express-session');
+exports.loginPage = (request, response) => {
+       console.log("Inside index Route");
+       response.render("Admin-view/admin_login.ejs");
+};
+
+exports.AdminDashboardPage=(request,response)=>{
+       response.render('Admin-view/admin_index.ejs');
+}
+
+
+exports.orderListPage=(request,response)=>{
+       response.render('Admin-view/orderlist.ejs');
+
+}
+
+exports.feedbackPage=(request,response)=>{
+       response.render('Admin-view/feedback.ejs');
+
+}
+
+exports.queryPage=(request,response)=>{
+       response.render('Admin-view/Query.ejs');
+
+}
+
+exports.logOut = (request,response)=>{
+       request.session.current_user = null;
+       request.session.destroy();
+       response.redirect("/admin/login");
+   }
 const Admin = require("../Model/adminmodel");
 exports.loginPost = (req,res)=>{
     let admin = new Admin(req.body.email,req.body.password);

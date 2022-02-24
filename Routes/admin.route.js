@@ -1,10 +1,19 @@
-const express = require("express");
-const route = express.Router();
-const adminController = require("../Controller/admin.controller");
-const auth = require("../Middleware/admin-auth.js");
+const express = require('express');
+const pool = require('../util/dbconnection');
+const auth=require('../Middleware/admin-auth');
+const router = express.Router();
+const adminRouter = require('../controller/admin.controller')
 
-route.get("/",adminController.loginPage);
-route.post("/login",adminController.loginPost);
-route.get("/dashboard",auth.isAdminAuth,adminController.dashboard);
+router.get("/login",adminRouter.loginPage);
 
-module.exports = route;
+router.post("/loginPost",adminRouter.loginPost);
+router.get("/dashboard",auth.isAuth,adminRouter.AdminDashboardPage);
+router.get("/orderlist",adminRouter.orderListPage);
+router.get("/feedback",adminRouter.feedbackPage);
+router.get("/Query",adminRouter.queryPage);
+router.get("/logout",auth.isAuth,adminRouter.logOut);
+route.get("/",adminRouter.loginPage);
+route.post("/login",adminRouter.loginPost);
+route.get("/dashboard",auth.isAuth,adminRouter.dashboard);
+
+module.exports = router;

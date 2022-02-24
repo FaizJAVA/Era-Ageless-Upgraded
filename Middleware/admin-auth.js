@@ -1,6 +1,8 @@
-exports.isAdminAuth = (req,res,next)=>{
-    if(req.session.current_user)
-        next();
-    else    
-        res.redirect("/admin/");
+exports.isAuth=(request,response,next)=>{
+       if(request.session.admin_email){
+              console.log('hfsjfjdkgdfkgdf');
+              next();
+       }
+       else
+              response.redirect('/admin/login');
 }
