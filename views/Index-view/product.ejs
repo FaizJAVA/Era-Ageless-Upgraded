@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmetic website</title>
+
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="/Css/index.style.css">
+
+</head>
+
+<body>
+
+    <!-- header section starts  -->
+
+    <header class="header">
+        <a href="#" class="logo"><span style="color: red; font-size: larger;">𝐄𝐑𝐀</span>-𝐀𝐆𝐄𝐋𝐄𝐒𝐒</a>
+        <%-include('indexmenu.ejs');%>
+        <!-- <nav class="navbar">
+            <a href="./index.ejs">home</a>
+            <a href="./feature.ejs">features</a>
+            <a href="./product.ejs">products</a>
+            <a href="./categories.ejs">categories</a>
+            <a href="./reviews.ejs">review</a>
+        </nav> -->
+
+        <div class="icons">
+            <div class="fas fa-bars" id="menu-btn"></div>
+            <div class="fas fa-search" id="search-btn"></div>
+            <div class="fas fa-shopping-cart" id="cart-btn"></div>
+            <div class="fas fa-user" id="login-btn"></div>
+        </div>
+
+        <form action="" class="search-form">
+            <input type="search" id="search-box" placeholder="search here...">
+            <label for="search-box" class="fas fa-search"></label>
+        </form>
+
+        <div class="shopping-cart">
+            <div class="box">
+                <i class="fas fa-trash"></i>
+                <img src="/Images/NewImage/cart.jpg" alt="">
+                <div class="content">
+                    <h3>Lakme lipstic</h3>
+                    <span class="price">75.00 MRP</span>
+                    <span class="quantity">qty : 1</span>
+                </div>
+            </div>
+            <div class="box">
+                <i class="fas fa-trash"></i>
+                <img src="/Images/NewImage/cart2.jpg" alt="">
+                <div class="content">
+                    <h3>CC Cream</h3>
+                    <span class="price">75.00 MRP</span>
+                    <span class="quantity">qty : 1</span>
+                </div>
+            </div>
+            <div class="box">
+                <i class="fas fa-trash"></i>
+                <img src="/Images/NewImage/cart3.jpg" alt="">
+                <div class="content">
+                    <h3>Lakme  Face Cream</h3>
+                    <span class="price">75.00 MRP</span>
+                    <span class="quantity">qty : 1</span>
+                </div>
+            </div>
+            <div class="total"> total : 225/- </div>
+            <a href="#" class="btn">checkout</a>
+        </div>
+
+        <form action="" class="login-form">
+            <h3>login now</h3>
+            <input type="email" placeholder="your email" class="box">
+            <input type="password" placeholder="your password" class="box">
+            <p>forget your password <a href="#">click here</a></p>
+            <p>don't have an account <a href="#">create now</a></p>
+            <input type="submit" value="login now" class="btn">
+        </form>
+
+    </header>
+
+    <!-- header section ends -->
+
+    <!-- home section starts  -->
+    
+    <section class="home" id="home">
+
+        <div class="content">
+            <h3>Pocket friendly <span>Trusty</span> products for you</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam libero nostrum veniam facere tempore nisi.</p>
+            <a href="#" class="btn">shop now</a>
+        </div>
+
+    </section>
+
+    <!-- home section ends -->
+
+    <!-- products section starts  -->
+
+    <!-- ================================for mens product =========================================== -->
+    <section class="products" id="products">
+
+        <h1 class="heading"> our <span>products</span> </h1>
+
+        <div class="swiper product-slider">
+
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide box">
+                    <img src="/Images/NewImage/moister.jpg" alt="">
+                    <h3>Moisturising Cream for Oily Skin</h3>
+                    <div class="price">₹    399 MRP (Inc. of all taxes)</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <a href="#" class="btn">add to cart</a>
+                </div>
+
+                <div class="swiper-slide box">
+                    <img src="/Images/NewImage/face.jpg" alt="">
+                    <h3>Face Wash - Oily Skin    - 200g</h3>
+                    <div class="price">₹399
+                        MRP (Inc. of all taxes)</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <a href="#" class="btn">add to cart</a>
+                </div>
+
+                <div class="swiper-slide box">
+                    <img src="/Images/NewImage/beard.jpg" alt="">
+                    <h3>Ultra  Beard Growth Oil - 35 ml</h3>
+                    <div class="price">₹399
+                        MRP (Inc. of all taxes)</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <a href="#" class="btn">add to cart</a>
+                </div>
+
+                <div class="swiper-slide box">
+                    <img src="/Images/NewImage/black_1__1.jpg" alt="">
+                    <h3>Ustraa Black - Lithium Powered Beard Trimmer</h3>
+                    <div class="price">₹1999  MRP (Inc. of all taxes)</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <a href="#" class="btn">add to cart</a>
+                </div>
+                    
+                <div class="swiper-slide box">
+                    <img src="/Images/NewImage/perfume.jpg" alt="">
+                    <h3>Ammunition Cologne - 100 ml-Perfume Men</h3>
+                    <div class="price">₹799 MRP (Inc. of all taxes)</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <a href="#" class="btn">add to cart</a>
+                </div>
+
+            </div>
+
+        </div>
+<!-- ========================for mens product end ============================================================= -->
+<!-- =============================womens procut start======================================================== -->
+
+        <div class="swiper product-slider">
+
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide box">
+                    <img src="/Images/NewImage/women2.jpg" alt="">
+                    <h3>Heaven Festive Combo, Honey, Multicolor</h3>
+                    <div class="price">₹849 MRP (Inc. of all taxes)</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <a href="#" class="btn">add to cart</a>
+                </div>
+
+                <div class="swiper-slide box">
+                    <img src="/Images/NewImage/women22.jpg" alt="">
+                    <h3>A Box of Nourishment for Skin & Hair </h3>
+                    <div class="price">₹909 MRP (Inc. of all taxes)</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <a href="#" class="btn">add to cart</a>
+                </div>
+
+                <div class="swiper-slide box">
+                    <img src="/Images/NewImage/women4.jpg" alt="">
+                    <h3>Vaseline Sun Protection Body Lotion 400 ml</h3>
+                    <div class="price">₹281.30 MRP (Inc. of all taxes)</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <a href="#" class="btn">add to cart</a>
+                </div>
+
+                <div class="swiper-slide box">
+                    <img src="/Images/NewImage/women5.jpeg" alt="">
+                    <h3>FRENCH ESSENCE Bloom Perfume for Women</h3>
+                    <div class="price">₹264 MRP (Inc. of all taxes)</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <a href="#" class="btn">add to cart</a>
+                </div>
+
+
+                <div class="swiper-slide box">
+                    <img src="/Images/NewImage/women6.jpg" alt="">
+                    <h3>NIVEA LemonOil, and Frangipani showergel</h3>
+                    <div class="price">₹402MRP (Inc. of all taxes)</div>
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <a href="#" class="btn">add to cart</a>
+                </div>  
+
+            </div>
+
+        </div>
+
+
+    </section>
+
+    <!-- products section ends -->
+
+
+<!-- footer section starts  -->
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+    
+            <h3><a href="#" class="logo"><span style="color: red; font-size: larger;">𝐄𝐑𝐀</span>-𝐀𝐆𝐄𝐋𝐄𝐒𝐒</a></h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam, saepe.</p>
+            <div class="share">
+                <a href="#" class="fab fa-facebook-f"></a>
+                <a href="#" class="fab fa-twitter"></a>
+                <a href="#" class="fab fa-instagram"></a>
+                <a href="#" class="fab fa-linkedin"></a>
+            </div>
+        </div>
+
+        <div class="box">
+            <h3>contact info</h3>
+            <a href="#" class="links"> <i class="fas fa-phone"></i> 0731-222243 </a>
+            <a href="#" class="links"> <i class="fas fa-phone"></i> +91-62-7890-1248 </a>
+            <a href="#" class="links"> <i class="fas fa-envelope"></i> eraageless@gmail.com </a>
+            <a href="#" class="links"> <i class="fas fa-map-marker-alt"></i> Indore, india - 452010 </a>
+        </div>
+
+        <div class="box">
+            <h3>newsletter</h3>
+            <p>subscribe for latest updates</p>
+            <input type="email" placeholder="your email" class="email">
+            <input type="submit" value="subscribe" class="btn">
+            <img src="/Images/payment.png" class="payment-img" alt="">
+        </div>
+
+    </div>
+
+
+</section>
+
+
+
+
+<!-- footer section ends -->
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+    <!-- custom js file link  -->
+    <script src="/JavaScript/script.js"></script>
+
+</body>
+
+</html>
