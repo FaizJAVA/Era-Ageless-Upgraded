@@ -12,6 +12,8 @@ router.get("/orderlist",adminRouter.orderListPage);
 router.get("/feedback",adminRouter.feedbackPage);
 router.get("/Query",adminRouter.queryPage);
 router.get("/logout",auth.isAuth,adminRouter.logOut);
-
+route.get("/",adminRouter.loginPage);
+route.post("/login",adminRouter.loginPost);
+route.get("/dashboard",auth.isAuth,adminRouter.dashboard);
 
 module.exports = router;

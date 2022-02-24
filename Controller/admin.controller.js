@@ -1,3 +1,4 @@
+
 const startconnection= require("../Util/dbconnection");
 const session = require('express-session');
 exports.loginPage = (request, response) => {
@@ -25,38 +26,32 @@ exports.queryPage=(request,response)=>{
 
 }
 
-exports.loginPost= (request, response) => {
-       console.log('hello');
-       
-       startconnection.getConnection((err,con)=>{
-              if (!err) {
-                     console.log('Inside');
-                     let sql = "select * from admin where adminname=? and password=?";
-
-                     const adminname=request.body.adminname;
-                     const password=request.body.password;
-                     console.log(adminname);
-                     con.query(sql, [adminname,password], (err, result) => {
-                            if (err) {
-                                   console.log(err);
-                                   response.send("<h1>Something went Wrong..</h1>");
-                            }
-                            else {
-                                   request.session.admin_email=request.body.adminname;
-                                response.redirect('/admin/dashboard');
-                            }
-                            con.release();
-                     });
-              }
-              else{
-                     console.log(err);
-                     response.send("<h1>Something went wrong....</h1>");
-              }
-       })
-       
-}
 exports.logOut = (request,response)=>{
        request.session.current_user = null;
        request.session.destroy();
        response.redirect("/admin/login");
    }
+const Admin = require("../Model/adminmodel");
+exports.loginPost = (req,res)=>{
+    let admin = new Admin(req.body.email,req.body.password);
+    admin.checkUser()
+    .then(result=>{
+        if(result.length>0){
+            req.session.current_user = req.body.email;
+            // res.render("Admin-view/dashboard.ejs");
+            res.redirect("/admin/dashboard");
+        }
+        else
+            res.send("Invalid email or password");
+    })
+    .catch(err=>{
+        res.send("Something went wrong");
+        console.log(err);
+    })
+}
+exports.loginPage = (req,res) =>{
+    res.render("Admin-view/login.ejs");
+}
+exports.dashboard = (req,res) =>{
+    res.render("Admin-view/dashboard.ejs");
+}
