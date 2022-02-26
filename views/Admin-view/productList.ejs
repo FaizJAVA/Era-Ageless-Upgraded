@@ -9,62 +9,105 @@
             th{
                 text-align: center;
             }
+            .row {
+                width: 1000px;
+                padding: 50px;
+                margin: 20px;
+                box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+            }
         </style>
     </head>
+
     <body>
-      <%-include('./admin-nav.ejs')%>
-        <div class="container mt-5">
-            <div class="row">
-                <div class="col-12">
-                  <table class="table">
-                      <thead>
-                          <tr>
-                              <th>S.no</th>
-                              
-                              <th>NAME</th>
-                              <th>PRICE</th>
-                              <th>DESCRIPTION</th>
-                              <th>QUANTITY</th>
-                              <th>DATE</th>
-                              <th>IMAGE</th>
-                              <th>EDIT</th>
-                              <th>DELETE</th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                            <%
-                            let sno=1;
-                            for(productelement of productlist){
-                            %>
-                             <tr>
-                                <td><%=sno++%></td>
-                                <td><%=productelement.name%></td>
-                                <td><%=productelement.price%></td>
-                                <td><%=productelement.description%></td>
-                                <td><%=productelement.qty%></td>
-                                <!-- <td><%=productelement.category_id%></td> -->
-                                <td><%=productelement.date%></td>
-                                <td><img src="/Images/<%=productelement.images%>" alt="" width="80px" height="80px"></td>
-                                <td><button class="btn btn-primary">EDIT</button></td>
-                                <td><button class="btn btn-danger">DELETE</button></td>
-                             </tr>
-                             <%}%>
-                      </tbody>
-                      <!-- <script>
-                          function deleteProduct(ProductId){
-                            if(confirm('Are you sure ?')){  
-                                $.ajax({
-                                    url: '/user/delete-Product/'+ProductId,
-                                    success: function(result){
-                                    $('#row'+ProductId).remove();
+        <%- include("../Partial/admin_dash_navbar.ejs")%>
+        <!-- CONTENT -->
+        <section id="content">
+            <!-- NAVBAR -->
+            <nav>
+                <i class='bx bx-menu' ></i>
+                <a href="#" class="nav-link">Categories</a>
+                <form action="#">
+                    <div class="form-input">
+                        <input type="search" placeholder="Search...">
+                        <button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
+                    </div>
+                </form>
+                <input type="checkbox" id="switch-mode" hidden>
+                <label for="switch-mode" class="switch-mode"></label>
+                <a href="#" class="notification">
+                    <i class='bx bxs-bell' ></i>
+                    <span class="num">8</span>
+                </a>
+                <a href="#" class="profile">
+                    <img src="/Images/dashboard_image.png">
+                </a>
+            </nav>
+            <main>
+                <div class="container mt-5 text-alignce">
+                    <div class="row">
+                        <div class="col-12">
+                          <table class="table">
+                              <thead>
+                                  <tr>
+                                      <th>S.no</th>
+                                      
+                                      <th>NAME</th>
+                                      <th>PRICE</th>
+                                      <th>DESCRIPTION</th>
+                                      <th>QUANTITY</th>
+                                      <th>DATE</th>
+                                      <th>IMAGE</th>
+                                      <th>EDIT</th>
+                                      <th>DELETE</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                    <%
+                                    let sno=1;
+                                    for(productelement of productlist){
+                                    %>
+                                     <tr>
+                                        <td><%=sno++%></td>
+                                        <td><%=productelement.name%></td>
+                                        <td><%=productelement.price%></td>
+                                        <td><%=productelement.description%></td>
+                                        <td><%=productelement.qty%></td>
+                                        <!-- <td><%=productelement.category_id%></td> -->
+                                        <td><%=productelement.date%></td>
+                                        <td><img src="/Images/<%=productelement.images%>" alt="" width="80px" height="80px"></td>
+                                        <td><button class="btn btn-primary">EDIT</button></td>
+                                        <td><button class="btn btn-danger">DELETE</button></td>
+                                     </tr>
+                                     <%}%>
+                              </tbody>
+                              <!-- <script>
+                                  function deleteProduct(ProductId){
+                                    if(confirm('Are you sure ?')){  
+                                        $.ajax({
+                                            url: '/user/delete-Product/'+ProductId,
+                                            success: function(result){
+                                            $('#row'+ProductId).remove();
+                                            }
+                                        });
                                     }
-                                });
-                            }
-                          }
-                      </script> -->
-                  </table>
+                                  }
+                              </script> -->
+                          </table>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+                
+                
+            </main>
+        </section>
+        
+    
+        <script src="script.js"></script>
     </body>
+
+
+
+
+
+
 </html>

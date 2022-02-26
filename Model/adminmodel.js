@@ -1,7 +1,7 @@
 const pool = require("../Util/dbconnection");
 module.exports = class Admin{
-    constructor(email,password){
-        this.email = email;
+    constructor(adminname,password){
+        this.adminname = adminname;
         this.password = password;
     }
 
@@ -11,7 +11,7 @@ module.exports = class Admin{
                 if(err) reject(err);
                 else{
                     let sql = "select * from admin where adminname=? and password = ?";
-                    con.query(sql,[this.email,this.password],(err,result)=>{
+                    con.query(sql,[this.adminname,this.password],(err,result)=>{
                         err ? reject(err) : resolve(result);
                         con.release();
                     });

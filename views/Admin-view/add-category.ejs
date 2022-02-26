@@ -1,33 +1,79 @@
 <html>
     <head>
         <%-include("../Partial/bootstrap.ejs")%>
+        <style>
+            .row{
+                background: var(--light);
+		width: 600px;
+		padding: 50px;
+		margin: 20px;
+		box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    }
+
+        </style>
     </head>
     <body>
-        <%- include("admin-nav.ejs")%>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-10 m-auto">
-                    <form action="/category/add-category" method="post" enctype="multipart/form-data">
-                        <div class="form-group">
-                            <label>Category Name</label>
-                            <input type="text" name="categoryName" class="form-control">
+        <%- include("../Partial/admin_dash_navbar.ejs")%>
+          
+        <!-- CONTENT -->
+        <section id="content">
+            <!-- NAVBAR -->
+            <nav>
+                <i class='bx bx-menu' ></i>
+                <a href="#" class="nav-link">Categories</a>
+                <form action="#">
+                    <div class="form-input">
+                        <input type="search" placeholder="Search...">
+                        <button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
+                    </div>
+                </form>
+                <input type="checkbox" id="switch-mode" hidden>
+                <label for="switch-mode" class="switch-mode"></label>
+                <!-- <a href="#" class="notification">
+                    <i class='bx bxs-bell'></i>
+                    <span class="num">8</span>
+                </a> -->
+                <a href="#" class="profile">
+                    <img src="/Images/dashboard_image.png">
+                </a>
+            </nav>
+            <main>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-10 ">
+                            <form action="/category/add-category" method="post" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label>Category Name</label>
+                                    <input type="text" name="categoryName" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>Gender: </label>
+                                    Male <input type="radio" name="gender" value="male">
+                                    Female <input type="radio" name="gender" value="female">
+                                </div>
+                                <div class="form-group">
+                                    <label>Image : </label>
+                                    <input type="file" name="categoryImage">
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-primary">Add</button>
+                                    <button class="btn btn-dark">Cancel</button>
+                                </div>
+                            </form>
                         </div>
-                        <div class="form-group">
-                            <label>Gender: </label>
-                            Male <input type="radio" name="gender" value="male">
-                            Female <input type="radio" name="gender" value="female">
-                        </div>
-                        <div class="form-group">
-                            <label>Image : </label>
-                            <input type="file" name="categoryImage">
-                        </div>
-                        <div class="form-group">
-                            <button class="btn btn-primary">Add</button>
-                            <button class="btn btn-dark">Cancel</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div> 
+                    </div>
+                </div> 
+                
+            </main>
+        </section>
+        
+    
+        <script src="script.js"></script>
     </body>
+
+
+
+
+
+
 </html>

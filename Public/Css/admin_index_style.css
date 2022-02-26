@@ -302,9 +302,6 @@ body {
 /* NAVBAR */
 
 
-
-
-
 /* MAIN */
 #content main {
 	width: 100%;
@@ -403,7 +400,8 @@ body {
 }
 
 
-
+#content main form{
+}
 
 
 #content main .table-data {
@@ -446,8 +444,6 @@ body {
 #content main .table-data .order table th {
 	padding-bottom: 12px;
 	font-size: 13px;
-	/* position: absolute;
-	top: 8px; */
 	right:190px;
 	border-bottom: 1px solid var(--grey);
 }

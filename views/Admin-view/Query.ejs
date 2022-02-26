@@ -2,6 +2,12 @@
 <html>
 <head>
 <style>
+  .row {
+                width: 600px;
+                padding: 50px;
+                margin: 20px;
+                box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+            }
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
@@ -69,24 +75,58 @@ h2{
 </head>
 <body>
 
-<h2>USERS QUERIES</h2>
 
-<table>
-  <tr>
-    <th>USER ID</th>
-    <th>USER NAME</th>
-    <th>PRODUCT NAME</th>
-    <th>QUERY</th>
-    <th>REPLY</th>
-</tr>
-  <tr>
-    <td>234</td>
-    <td>Sapna Prajapat</td>
-    <td>Lipstick</td>
-    <td>how many colors are present</td>
-  </tr>
-  
-</table>
-<a href="/admin/dashboard"><button class="back_btn" role="button">BACK</button></a>
 </body>
+<body>
+  <%- include("../Partial/admin_dash_navbar.ejs")%>
+    
+  <!-- CONTENT -->
+  <section id="content">
+      <!-- NAVBAR -->
+      <nav>
+          <i class='bx bx-menu' ></i>
+          <a href="#" class="nav-link">Categories</a>
+          <form action="#">
+              <div class="form-input">
+                  <input type="search" placeholder="Search...">
+                  <button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
+              </div>
+          </form>
+          <input type="checkbox" id="switch-mode" hidden>
+          <label for="switch-mode" class="switch-mode"></label>
+          <a href="#" class="notification">
+              <i class='bx bxs-bell' ></i>
+              <span class="num">8</span>
+          </a>
+          <a href="#" class="profile">
+              <img src="/Images/dashboard_image.png">
+          </a>
+      </nav>
+      <main>
+        <h2>USERS QUERIES</h2>
+
+        <table>
+          <tr>
+            <th>USER ID</th>
+            <th>USER NAME</th>
+            <th>PRODUCT NAME</th>
+            <th>QUERY</th>
+            <th>REPLY</th>
+        </tr>
+          <tr>
+            <td>234</td>
+            <td>Sapna Prajapat</td>
+            <td>Lipstick</td>
+            <td>how many colors are present</td>
+          </tr>
+          
+        </table>
+        <a href="/admin/dashboard"><button class="back_btn" role="button">BACK</button></a>
+      </main>
+  </section>
+  
+
+  <script src="script.js"></script>
+</body>
+
 </html>

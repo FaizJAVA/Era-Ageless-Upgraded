@@ -1,95 +1,134 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-       <title>OrderList</title>
-<style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
+  <title>OrderList</title>
+  <style>
+    .row {
+                width: 600px;
+                padding: 50px;
+                margin: 20px;
+                box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+            }
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
 
- th {
-  /*border: 1px solid #000000;*/
-  text-align: CENTRE;
-  padding: 22px;
-  background-color: rgb(241, 177, 182);
-  text-decoration: underline;
-  border-radius: 15px;
+    th {
+      /*border: 1px solid #000000;*/
+      text-align: CENTRE;
+      padding: 22px;
+      background-color: rgb(241, 177, 182);
+      text-decoration: underline;
+      border-radius: 15px;
 
-}
-td{
-    padding-top: 10px;
-    padding-bottom: 10px;
-    text-align: center;  
-    background-color: rgb(245, 233, 233);
-    /* border: 1px solid #000000;  */
-    border-radius: 15px;
-}
+    }
 
-tr:nth-child(even) {
-  background-color: #dddddd;
-  border-radius: 15px;
-  
-}
+    td {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      text-align: center;
+      background-color: rgb(245, 233, 233);
+      /* border: 1px solid #000000;  */
+      border-radius: 15px;
+    }
 
-h2{
-  padding-bottom: 20px;
-  text-decoration: underline;
- 
-}
-/* CSS */
-.back_btn {
-  background-color: #c2fbd7;
-  border-radius: 100px;
-  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
-  color: green;
-  cursor: pointer;
-  display: inline-block;
-  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
-  padding: 7px 20px;
-  text-align: center;
-  margin-left: 10px;
-  text-decoration: none;
-  transition: all 250ms;
-  border: 0;
-  font-size: 16px;
-  margin-top: 30px;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
+    tr:nth-child(even) {
+      background-color: #dddddd;
+      border-radius: 15px;
 
-.back_btn:hover {
-  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
-  transform: scale(1.05) rotate(-1deg);
-}
+    }
 
+    h2 {
+      padding-bottom: 20px;
+      text-decoration: underline;
 
-</style>
+    }
+
+    /* CSS */
+    .back_btn {
+      background-color: #c2fbd7;
+      border-radius: 100px;
+      box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+      color: green;
+      cursor: pointer;
+      display: inline-block;
+      font-family: CerebriSans-Regular, -apple-system, system-ui, Roboto, sans-serif;
+      padding: 7px 20px;
+      text-align: center;
+      margin-left: 10px;
+      text-decoration: none;
+      transition: all 250ms;
+      border: 0;
+      font-size: 16px;
+      margin-top: 30px;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+    }
+
+    .back_btn:hover {
+      box-shadow: rgba(44, 187, 99, .35) 0 -25px 18px -14px inset, rgba(44, 187, 99, .25) 0 1px 2px, rgba(44, 187, 99, .25) 0 2px 4px, rgba(44, 187, 99, .25) 0 4px 8px, rgba(44, 187, 99, .25) 0 8px 16px, rgba(44, 187, 99, .25) 0 16px 32px;
+      transform: scale(1.05) rotate(-1deg);
+    }
+  </style>
 </head>
+
 <body>
+  <%- include("../Partial/admin_dash_navbar.ejs")%>
 
-<h2>ORDER LIST</h2>
+    <!-- CONTENT -->
+    <section id="content">
+      <!-- NAVBAR -->
+      <nav>
+        <i class='bx bx-menu'></i>
+        <a href="#" class="nav-link">Categories</a>
+        <form action="#">
+          <div class="form-input">
+            <input type="search" placeholder="Search...">
+            <button type="submit" class="search-btn"><i class='bx bx-search'></i></button>
+          </div>
+        </form>
+        <input type="checkbox" id="switch-mode" hidden>
+        <label for="switch-mode" class="switch-mode"></label>
+        <a href="#" class="notification">
+          <i class='bx bxs-bell'></i>
+          <span class="num">8</span>
+        </a>
+        <a href="#" class="profile">
+          <img src="/Images/dashboard_image.png">
+        </a>
+      </nav>
+      <main>
 
-<table>
-  <tr>
-    <th>USER ID</th>
-    <th>USER NAME</th>
-    <th>PRODUCT NAME</th>
-    <th>QUANTITY</th>
-    <th>DATE</th>
-</tr>
-  <tr>
-    <td>1</td>
-    <td>Sapna Prajapat</td>
-    <td>Lipstick</td>
-    <td>4</td>
-    <td>12-march-2022</td>
-  </tr>
-  
-</table>
-<a href="/admin/dashboard"><button class="back_btn" role="button">BACK</button></a>
+        <h2>ORDER LIST</h2>
 
+        <table>
+          <tr>
+            <th>USER ID</th>
+            <th>USER NAME</th>
+            <th>PRODUCT NAME</th>
+            <th>QUANTITY</th>
+            <th>DATE</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Sapna Prajapat</td>
+            <td>Lipstick</td>
+            <td>4</td>
+            <td>12-march-2022</td>
+          </tr>
+
+        </table>
+        <a href="/admin/dashboard"><button class="back_btn" role="button">BACK</button></a>
+
+      </main>
+    </section>
+
+
+    <script src="script.js"></script>
 </body>
+
 </html>

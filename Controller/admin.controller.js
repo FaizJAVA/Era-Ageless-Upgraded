@@ -15,7 +15,7 @@ exports.addCategoryPage=(request,response)=>{
 
 
 exports.productListPage=(request,response)=>{
-    response.render('Admin-view/productlist.ejs');
+    response.render('Admin-view/productList.ejs');
 
 }
 

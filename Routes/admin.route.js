@@ -7,9 +7,9 @@ const adminRouter = require('../Controller/admin.controller')
 router.get("/login",adminRouter.loginPage);
 //router.post("/loginPost",adminRouter.loginPost);
 router.get("/dashboard",auth.isAuth,adminRouter.AdminDashboardPage);
-router.get("/addcategory",adminRouter.addCategoryPage);
-router.get("/productlist",adminRouter.productListPage);
-router.get("/addproduct",adminRouter.addProductPage);
+// router.get("/addcategory",adminRouter.addCategoryPage);
+// router.get("/productlist",adminRouter.productListPage);
+// router.get("/addproduct",adminRouter.addProductPage);
 router.get("/orderlist",adminRouter.orderListPage);
 router.get("/feedback",adminRouter.feedbackPage);
 router.get("/Query",adminRouter.queryPage);

@@ -5,6 +5,6 @@ const pool=mysql.createPool({
     host:'localhost',
     user:'root',
     password:'root',
-    database:'Era_Ageless'
+    database:'Eraagless'
 });
 module.exports= pool;

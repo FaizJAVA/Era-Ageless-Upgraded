@@ -10,6 +10,12 @@
 * {
     box-sizing: border-box;
   }
+  .row {
+                width: 600px;
+                padding: 50px;
+                margin: 20px;
+                box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+            }
   
   body {
     font-family: Arial;
@@ -115,7 +121,32 @@
 </style>
 </head>
 <body>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <%- include("../Partial/admin_dash_navbar.ejs")%>
+    
+  <!-- CONTENT -->
+  <section id="content">
+      <!-- NAVBAR -->
+      <nav>
+          <i class='bx bx-menu' ></i>
+          <a href="#" class="nav-link">Categories</a>
+          <form action="#">
+              <div class="form-input">
+                  <input type="search" placeholder="Search...">
+                  <button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
+              </div>
+          </form>
+          <input type="checkbox" id="switch-mode" hidden>
+          <label for="switch-mode" class="switch-mode"></label>
+          <a href="#" class="notification">
+              <i class='bx bxs-bell' ></i>
+              <span class="num">8</span>
+          </a>
+          <a href="#" class="profile">
+              <img src="/Images/dashboard_image.png">
+          </a>
+      </nav>
+      <main>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <span class="heading">User Rating</span>
 <span class="fa fa-star checked"></span>
@@ -184,5 +215,12 @@
   </div>
 </div>
 <a href="/admin/dashboard"><button class="back_btn" role="button">BACK</button></a>
+          
+      </main>
+  </section>
+  
+
+  <script src="script.js"></script>
 </body>
+
 </html>
