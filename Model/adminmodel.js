@@ -10,7 +10,7 @@ module.exports = class Admin{
             pool.getConnection((err,con)=>{
                 if(err) reject(err);
                 else{
-                    let sql = "select * from admin where email=? and password = ?";
+                    let sql = "select * from admin where adminname=? and password = ?";
                     con.query(sql,[this.email,this.password],(err,result)=>{
                         err ? reject(err) : resolve(result);
                         con.release();

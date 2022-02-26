@@ -1,5 +1,5 @@
 exports.isAuth=(request,response,next)=>{
-       if(request.session.admin_email){
+       if(request.session.current_user){
               console.log('hfsjfjdkgdfkgdf');
               next();
        }
