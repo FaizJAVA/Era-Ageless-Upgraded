@@ -14,7 +14,7 @@ module.exports=class User{
         return new Promise((resolve,reject)=>{
             pool.getConnection((err,conn)=>{
                 if(!err){
-                    const sql='insert into user(name,email,password,mobile,gender,address) values(?,?,?,?,?,?)';                    
+                    const sql='insert into customer(name,email,password,mobile,gender,address) values(?,?,?,?,?,?)';                    
                     conn.query(sql,[this.name,this.email,this.password,this.mobile,this.gender,this.address],(err,result)=>{
                         err ? reject(err) : resolve(result);
                     });
@@ -29,7 +29,7 @@ module.exports=class User{
         return new Promise((resolve,reject)=>{
             pool.getConnection((err,conn)=>{
                 if(!err){
-                    const sql="select * from user where email=? and password=?";
+                    const sql="select * from customer where email=? and password=?";
                     conn.query(sql,[this.email,this.password],(err,result)=>{
                         err ? reject(err) : resolve(result);
                     });
