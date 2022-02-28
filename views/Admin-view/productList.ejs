@@ -3,6 +3,9 @@
         <%-include("../Partial/bootstrap.ejs")%>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <style>
+            table{
+                background: var(--light);
+            }
             td{
                 text-align: center;
             }
@@ -12,7 +15,7 @@
         </style>
     </head>
     <body>
-      <%-include('./admin-nav.ejs')%>
+      <%-include('../Partial/admin_nav.ejs')%>
         <div class="container mt-5">
             <div class="row">
                 <div class="col-12">
@@ -20,7 +23,7 @@
                       <thead>
                           <tr>
                               <th>S.no</th>
-                              
+                              <th>Category</th>
                               <th>NAME</th>
                               <th>PRICE</th>
                               <th>DESCRIPTION</th>
@@ -36,32 +39,35 @@
                             let sno=1;
                             for(productelement of productlist){
                             %>
-                             <tr>
+                             <tr id="row<%=productelement.id%>">
                                 <td><%=sno++%></td>
+                                <td><%=productelement.c_name%></td>
                                 <td><%=productelement.name%></td>
                                 <td><%=productelement.price%></td>
                                 <td><%=productelement.description%></td>
                                 <td><%=productelement.qty%></td>
-                                <!-- <td><%=productelement.category_id%></td> -->
                                 <td><%=productelement.date%></td>
                                 <td><img src="/Images/<%=productelement.images%>" alt="" width="80px" height="80px"></td>
-                                <td><button class="btn btn-primary">EDIT</button></td>
-                                <td><button class="btn btn-danger">DELETE</button></td>
+                                
+                                <td><a href="/product/edit-product/<%=productelement.id%>"><button class="btn btn-primary">EDIT</button></a></td>
+                            
+                                <td><button class="btn btn-danger" onclick="deleteProduct('<%=productelement.id%>')">DELETE</button></td>
                              </tr>
                              <%}%>
                       </tbody>
-                      <!-- <script>
+                      <script>
                           function deleteProduct(ProductId){
+                              console.log(ProductId);
                             if(confirm('Are you sure ?')){  
                                 $.ajax({
-                                    url: '/user/delete-Product/'+ProductId,
+                                    url: '/product/delete-Product/'+ProductId,
                                     success: function(result){
                                     $('#row'+ProductId).remove();
                                     }
                                 });
                             }
                           }
-                      </script> -->
+                      </script>
                   </table>
                 </div>
             </div>

@@ -1,92 +1,58 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
+  <%-include("../Partial/bootstrap.ejs")%>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <style>
+      
+      table{
+                background: var(--light);
+                border-radius: 20px;
+            }
+            td{
+                text-align: center;
+            }
+            th{
+                text-align: center;
+            }
+            h2{
+              padding: 20px;
+            }
 
- th {
-  /*border: 1px solid #000000;*/
-  text-align: CENTRE;
-  padding: 22px;
-  background-color: rgb(241, 177, 182);
-  text-decoration: underline;
-  border-radius: 15px;
-
-}
-td{
-    padding-top: 10px;
-    padding-bottom: 10px;
-    text-align: center;  
-    background-color: rgb(245, 233, 233);
-    /* border: 1px solid #000000;  */
-    border-radius: 15px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-  border-radius: 15px;
-  
-}
-
-h2{
-  padding-bottom: 20px;
-  text-decoration: underline;
- 
-}
-
-/* CSS */
-.back_btn {
-  background-color: #c2fbd7;
-  border-radius: 100px;
-  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
-  color: green;
-  cursor: pointer;
-  display: inline-block;
-  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
-  padding: 7px 20px;
-  text-align: center;
-  margin-left: 10px;
-  text-decoration: none;
-  transition: all 250ms;
-  border: 0;
-  font-size: 16px;
-  margin-top: 30px;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-
-.back_btn:hover {
-  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
-  transform: scale(1.05) rotate(-1deg);
-}
-
-</style>
+  </style>
 </head>
 <body>
-
+<%-include('../Partial/admin_nav.ejs')%>
 <h2>USERS QUERIES</h2>
+  <div class="container mt-2">
+      <div class="row">
+          <div class="col-12 mt-3">
+            <table class="table">
+              
+                <thead>
+                    <th>USER NAME</th>
+                    <th>QUERY</th>
+                    <th>STATUS</th>
+                    <th>REPLY</th>
 
-<table>
-  <tr>
-    <th>USER ID</th>
-    <th>USER NAME</th>
-    <th>PRODUCT NAME</th>
-    <th>QUERY</th>
-    <th>REPLY</th>
-</tr>
-  <tr>
-    <td>234</td>
-    <td>Sapna Prajapat</td>
-    <td>Lipstick</td>
-    <td>how many colors are present</td>
-  </tr>
-  
-</table>
-<a href="/admin/dashboard"><button class="back_btn" role="button">BACK</button></a>
+                </thead>
+                <tbody>
+                  <%let sno;
+                  for(query of Queries){%>
+                  <tr>
+                    <td><%=query.name%></td>
+                    <td><%=query.query%></td>
+                    <td><%=query.status%></td>
+                    <td><a href="/admin/reply-query/<%=query.email%>/<%=query.id%>"><button>Compose Email</button></a></td>
+                  </tr>
+                  <%}%>
+                </tbody>
+                
+            </table>
+          </div>
+      </div>
+  </div>
 </body>
+
 </html>

@@ -1,12 +1,24 @@
 <html>
     <head>
         <%-include("../Partial/bootstrap.ejs")%>
+        <style>
+            .form-style{
+                background: var(--light);
+                height: 500px;
+                margin: 20px;
+                padding: 30px;
+                border-radius: 20px;
+                font-family: var(--lato);
+                position: sticky;
+            }
+        </style>
     </head>
     <body>
-        <%- include("admin-nav.ejs")%>
+        <%- include("../Partial/admin_nav.ejs")%>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-10 m-auto">
+                    <div class="form-style">
                     <form action="/category/add-category" method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <label>Category Name</label>
@@ -26,6 +38,7 @@
                             <button class="btn btn-dark">Cancel</button>
                         </div>
                     </form>
+                </div>
                 </div>
             </div>
         </div> 
