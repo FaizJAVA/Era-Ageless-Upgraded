@@ -31,7 +31,7 @@ module.exports = class Product {
         return new Promise((resolve, reject) => {
             pool.getConnection((err, con) => {
                 if (!err) {
-                    let sql = "select * from product";
+                    let sql = " select category.name as c_name,product.id,product.name,product.images,product.price,qty,description from product inner join category on product.category_id=category.id;";
                     con.query(sql, (err, result) => {
                         err ? reject(err) : resolve(result);
                     })
@@ -42,6 +42,38 @@ module.exports = class Product {
             })
         })
     }
+
+    static readOneProduct(id) {
+            return new Promise((resolve, reject) => {
+                pool.getConnection((err, con) => {
+                    if (!err) {
+                        let sql = "select * from product where id=?";
+                        con.query(sql,[id] ,(err, result) => {
+                            err ? reject(err) : resolve(result);
+                        })
+                    }
+                    else {
+                        reject(err);
+                    }
+                })
+            })
+        }
+        static checkProduct(id) {
+            return new Promise((resolve, reject) => {
+                pool.getConnection((err, con) => {
+                    if (!err) {
+                        let sql = " select * from cart where productId = ?;";
+                        con.query(sql,[id] ,(err, result) => {
+                            err ? reject(err) : resolve(result);
+                        })
+                    }
+                    else {
+                        reject(err);
+                    }
+                })
+            })
+        }
+
 
     // static signout() {
     //     return new Promise((resolve, reject) => {

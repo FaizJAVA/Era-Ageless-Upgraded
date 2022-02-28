@@ -1,4 +1,5 @@
 const User = require("../Model/usermodel")
+const Product = require("../Model/productmodel");
 
 exports.userHomePage = (request, response) => {
     response.render('User-view/userReg.ejs');
@@ -9,7 +10,16 @@ exports.userLoginPage = (request, response) => {
 }
 
 exports.userDashBoard=(request,response)=>{
-    response.render('User-view/user-dashboard')
+    Product.viewProduct()
+    .then(result=>{
+     response.render('../Views/User-view/user-dashboard',{
+         products:result
+     })
+
+    })
+    .catch(err=>{
+
+    })
 }
 
 exports.saveQuery=(request,response)=>{
@@ -41,11 +51,14 @@ exports.checkUserLogIn = (request, response) => {
     
     userobj.check().then(result => {
         if (result.length > 0) {
-            request.session.current_user = request.body.email; 
+            request.session.current_user_id = result[0].id; 
+            console.log(request.session.current_user_id);
             response.redirect("/user/userdash");
         }
-        else
+        else{
             response.send('Invalid User');
+
+        }
 
     }).catch(err => {
         console.log(err);
