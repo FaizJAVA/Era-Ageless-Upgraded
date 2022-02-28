@@ -1,10 +1,183 @@
-<html>
-    <head>
-        <%-include('../Partial/boot.ejs');%>
-    </head>
-    <body>
-        <%-include('../Partial/menu.ejs');%>
+<!DOCTYPE html>
+<html lang="en">
 
-        
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmetic website</title>
+
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="/Css/index.style.css">
+
+</head>
+
+<body>
+
+    <!-- header section starts  -->
+
+    <header class="header">
+
+
+        <a href="#" class="logo"><span style="color: red; font-size: larger;">𝐄𝐑𝐀</span>-𝐀𝐆𝐄𝐋𝐄𝐒𝐒</a>
+
+        <%- include('../Index-view/indexmenu.ejs')%>
+
+            <div class="icons">
+                <div class="fas fa-bars" id="menu-btn"></div>
+                <!-- <div class="fas fa-search" id="search-btn"></div> -->
+                <div class="fas fa-shopping-cart" id="cart-btn"></div>
+                <!-- <a href="#">
+                    <div class="fas fa-user" id="login-btn"></div>
+                </a> -->
+            </div>
+
+            <form action="" class="search-form">
+                <input type="search" id="search-box" placeholder="search here...">
+                <label for="search-box" class="fas fa-search"></label>
+            </form>
+
+            <div class="shopping-cart">
+                <div class="box">
+                    <i class="fas fa-trash"></i>
+                    <img src="/Images/NewImage/cart.jpg" alt="">
+                    <div class="content">
+                        <h3>Lakme lipstic</h3>
+                        <span class="price">75.00 MRP</span>
+                        <span class="quantity">qty : 1</span>
+                    </div>
+                </div>
+                <div class="box">
+                    <i class="fas fa-trash"></i>
+                    <img src="/Images/NewImage/cart2.jpg" alt="">
+                    <div class="content">
+                        <h3>CC Cream</h3>
+                        <span class="price">75.00 MRP</span>
+                        <span class="quantity">qty : 1</span>
+                    </div>
+                </div>
+                <div class="box">
+                    <i class="fas fa-trash"></i>
+                    <img src="/Images/NewImage/cart3.jpg" alt="">
+                    <div class="content">
+                        <h3>Lakme Face Cream</h3>
+                        <span class="price">75.00 MRP</span>
+                        <span class="quantity">qty : 1</span>
+                    </div>
+                </div>
+                <div class="total"> total :225/- </div>
+                <a href="#" class="btn">checkout</a>
+            </div>
+
+            <form action="" class="login-form">
+                <div><img height="100px" width="100px" src="/Images/admin_logo.jpg" alt=""></div>
+                <input width="156px" type="button" value="Admin Login" class="btn">
+                <input width="110px" type="button" value="User Login" class="btn">
+            </form>
+
+    </header>
+
+    <!-- header section ends -->
+
+    <!-- home section starts  -->
+
+    <section class="home" id="home">
+
+        <div class="content">
+            <h3>Pocket friendly<span>Trusty</span> products for you</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam libero nostrum veniam facere tempore
+                nisi.</p>
+            <a href="#" class="btn">shop now</a>
+
+            <a href=""></a>
+        </div>
+
+    </section>
+
+    <section class="products" id="products">
+
+         <div class="swiper product-slider">
+
+            <div class="swiper-wrapper">
+                <%for(product of products){%>
+                    <!-- <div style="float:left;"> -->
+                    <div class="swiper-slide box">
+                        <img src="/Images/<%=product.images%>" alt="" style="width:250px">
+                        <h3>
+                            <%=product.name%>
+                        </h3>
+                        <div>
+                            <%=product.price%> Rs.
+                        </div>
+
+                        <a href="/cart/read-product/<%=product.id%>" class="btn">Views</a>
+                        <!-- </div> -->
+                    </div>
+                    <%}%>
+
+            </div>
+        </div>
+
+        </div>
+
+        </div>
+
+
+    </section>
+    <!-- footer section starts  -->
+
+    <section class="footer">
+
+        <div class="box-container">
+
+            <div class="box">
+
+                <h3><a href="#" class="logo"><span
+                            style="color: red; font-size: larger;">𝐄𝐑𝐀</span>-𝐀𝐆𝐄𝐋𝐄𝐒𝐒</a></h3>
+                <p>JOIN WITH OUR</p>
+                <p>JOIN WITH OUR</p>
+                <p class="social" style="color: red; font-size:10px"> SOCIAL MEDIA</p>
+                <div class="share">
+                    <a href="#" class="fab fa-facebook-f"></a>
+                    <a href="#" class="fab fa-twitter"></a>
+                    <a href="#" class="fab fa-instagram"></a>
+                    <a href="#" class="fab fa-linkedin"></a>
+                </div>
+            </div>
+
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#" class="links"> <i class="fas fa-phone"></i> 0731-222243 </a>
+                <a href="#" class="links"> <i class="fas fa-phone"></i> +91-62-7890-1248 </a>
+                <a href="#" class="links"> <i class="fas fa-envelope"></i> eraageless@gmail.com </a>
+                <a href="#" class="links"> <i class="fas fa-map-marker-alt"></i> Indore, india - 452010 </a>
+            </div>
+
+            <div class="box">
+                <h3>newsletter</h3>
+                <p>subscribe for latest updates</p>
+                <input type="email" placeholder="your email" class="email">
+                <input type="submit" value="subscribe" class="btn">
+                <img src="/Images/payment.png" class="payment-img" alt="">
+            </div>
+
+        </div>
+
+
+    </section>
+    <!-- footer section ends -->
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+    <!-- custom js file link  -->
+    <script src="/JavaScript/script.js"></script>
+
+
+</body>
+
 </html>
