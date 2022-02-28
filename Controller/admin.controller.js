@@ -1,12 +1,48 @@
 const Admin=require('../Model/adminmodel');
-const startconnection= require("../Util/dbconnection");
-const session = require('express-session');
-exports.loginPage = (request, response) => {
-       console.log("Inside index Route");
-       response.render("Admin-view/admin_login.ejs");
-};
+const Order = require("../Model/ordermodel");
+const User = require("../Model/usermodel");
+const Query = require("../Model/querymodel");
+const res = require('express/lib/response');
+const nodemailer = require("nodemailer");
+// const startconnection= require("../Util/dbconnection");
+// const session = require('express-session');
+// exports.loginPage = (request, response) => {
+//        console.log("Inside index Route");
+//        response.render("Admin-view/admin_login.ejs");
+// };
 exports.AdminDashboardPage=(request,response)=>{
-    response.render('Admin-view/admin_index.ejs');
+    Order.totalOrders()
+    .then((totalOrders=>{
+        User.countUser()
+        .then(totalUser=>{
+            Order.totalSales()
+            .then(totalSalesAmount =>{
+                Order.recentOrders()
+                .then(Order=>{
+                    response.render("Admin-view/admin_index.ejs",{
+                        totalOrders : totalOrders[0].totalOrders,
+                        totalUser : totalUser[0].totalCustomer,
+                        totalSales : totalSalesAmount[0].totalAmount,
+                        recentOrders : Order
+                    });
+                })
+                .catch(err=>{
+                    response.send("Something went wrong");
+                    console.log(err);
+                })
+            })
+            .catch(err=>{
+                response.send("something went wrong");
+                console.log(err);
+            })
+        })
+        .catch(err=>{
+            response.send("Something went wrong");
+        })
+    }))
+    .catch(err=>{
+        console.log(err);
+    });
 }
 
 exports.addCategoryPage=(request,response)=>{
@@ -30,8 +66,17 @@ exports.orderListPage=(request,response)=>{
 }
 
 exports.queryPage=(request,response)=>{
-    response.render('Admin-view/Query.ejs');
-
+    Query.fetchAll()
+    .then(result=>{
+        response.render('Admin-view/Query',{
+            Queries : result
+        });
+        
+    })
+    .catch(err=>{
+        response.send("Something went wrong");
+        console.log(err);
+    });
 }
 
 exports.feedbackPage=(request,response)=>{
@@ -45,14 +90,11 @@ exports.logOut = (request,response)=>{
        response.redirect("/admin/login");
    }
 exports.loginPost = (req,res)=>{
-    console.log(req.body);
     let adminobj = new Admin(req.body.email,req.body.password);
     adminobj.checkUser()
     .then(results=>{
         if(results.length>0){
-            console.log(req.body.email);
             req.session.current_user = req.body.email;
-            console.log(req.body.adminname);
             // res.render("Admin-view/dashboard.ejs");
             return res.redirect("/admin/dashboard");
         }
@@ -70,5 +112,70 @@ exports.loginPage = (req,res) =>{
     res.render("Admin-view/login.ejs");
 }
 exports.dashboard = (req,res) =>{
-    res.render("Admin-view/dashboard.ejs");
+    Order.totalOrders()
+    .then((result=>{
+        console.log("Hello");
+        console.log(result);
+        // res.render("Admin-view/dashboard.ejs");
+
+    }))
+    .catch(err=>{
+        console.log(err);
+    });
+}
+
+exports.replyQuery = (req,res) =>{
+    res.render("Admin-view/composeEmail.ejs",{
+        email : req.params.email,
+        id : req.params.id
+    });
+    console.log(req.params.id);
+}
+
+exports.sendEmail = (req,res)=>{
+    let sender = "mahak01agrawal@gmail.com";
+    let reciever = req.body.reciever;
+    let subject = req.body.subject;
+    let message = req.body.message;
+
+    const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: sender,
+            pass: 'mahak@123!'
+        }
+    });
+
+    // email options
+    let mailOptions = {
+        from: sender,
+        to: reciever,
+        subject: subject,
+        text: message
+    };
+
+    transporter.sendMail(mailOptions, (error, response) => {
+        if (error) {
+            console.log(error);
+            res.send("Something went wrong");
+        }
+        else{
+            let q = new Query();
+            q.id = req.body.id;
+            q.status = "solved";
+            q.update()
+            .then(result=>{
+                res.redirect("/admin/Query");
+            })
+            .catch(err=>{
+                console.log(err);
+                res.send("Something went wrong");
+            })
+            
+            // res.redirect("/admin/Query");
+            // console.log(response);
+        }
+        
+    });
+    
 }

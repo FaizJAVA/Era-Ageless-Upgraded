@@ -1,0 +1,89 @@
+<html>
+
+<head>
+    <%- include("../Partial/bootstrap.ejs")%>
+    <style>
+            .dialog {
+                /* height: 600px; */
+                width: 50%;
+                background-color: #EEEEEE;
+                margin: auto;
+                border: 3px solid black;
+                /* box-shadow: px 5px gray; */
+                border-radius: 10px;
+                margin-bottom: 10px;
+                padding-bottom: 20px;
+            }
+
+            .newMessage {
+                background-color: black;
+                color: white;
+                height: 40px;
+                padding: 10px;
+            }
+
+            .reciever {
+                padding-left: 10px;
+                padding-top: 10px;
+                padding-right: 10px;
+            }
+
+            .subject {
+                padding-left: 10px;
+                padding-top: 10px;
+                padding-right: 10px;
+            }
+            .message{
+                padding-left: 10px;
+                padding-top: 10px;
+                padding-right: 10px;
+                /* width: 250px; */
+            }
+
+            #message{
+                width: 100%;
+                height: 100px;
+            }
+            .button{
+                padding-left: 10px;
+                padding-top: 10px;
+                padding-right: 10px;
+            }
+
+        </style>
+</head>
+
+<body>
+    <%- include("../Partial/admin_nav")%>
+    <div class="container mt-5">
+            <div class="row">
+                <div class="col">
+                    <form action="/admin/sendEmail" method="post">
+                        <div class="dialog">
+                            <div class="newMessage">
+                                New Message
+                            </div>
+                            <input type="text" name="id" value="<%=id%>" hidden>
+                            <div class="reciever">
+                                <b>To</b><input name="reciever" type="email" value="<%= email%>" class="form-control">
+                                <!-- <hr> -->
+                            </div>
+                            <div class="subject">
+                                <b>Subject</b> <textarea name="subject" style=" height: 35px;" class="form-control"></textarea>
+                                <hr>
+                            </div>
+                            <div class="message">
+                                <textarea name="message" id="message"></textarea>
+                            </div>
+                            <div class="buttons">
+                            <button class="btn btn-primary mt-4" style="margin-left: 50px;" type="submit">Send</button>
+                            <button class="btn btn-dark mt-4" style="margin-left: 50px;">Cancel</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>
