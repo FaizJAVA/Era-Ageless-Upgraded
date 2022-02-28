@@ -39,4 +39,18 @@ module.exports=class User{
             });
         });
     }
+    static countUser(){
+        return new Promise((resolve,reject)=>{
+            pool.getConnection((err,conn)=>{
+                if(!err){
+                    const sql="select count(*) as totalCustomer from customer;";
+                    conn.query(sql,(err,result)=>{
+                        err ? reject(err) : resolve(result);
+                    });
+                }
+                else   
+                    reject(err);
+            });
+        });
+    }
 }
