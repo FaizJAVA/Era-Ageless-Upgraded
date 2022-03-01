@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <%-include("../Partial/bootstrap.ejs")%>
+  <%-include("../Partial/boot.ejs")%>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <style>
       
@@ -44,7 +44,7 @@
                     <td><%=query.name%></td>
                     <td><%=query.query%></td>
                     <td><%=query.status%></td>
-                    <td><a href="/admin/reply-query/<%=query.email%>/<%=query.id%>"><button>Compose Email</button></a></td>
+                    <td><a href="/admin/reply-query/<%=query.email%>/<%=query.id%>"><button class="btn btn-primary">Compose Email</button></a></td>
                   </tr>
                   <%}%>
                 </tbody>

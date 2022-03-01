@@ -15,6 +15,22 @@
 
     <!-- custom css file link  -->
     <link rel="stylesheet" href="/Css/index.style.css">
+    <style>
+        .box1{
+            border: 2px solid black;
+            box-sizing: 2px solid black;
+            width: 25%;
+            padding: 10px;
+            justify-content: center;
+            margin: 20px;
+        }
+        .prod{
+            /* float: left; */
+            /* justify-content:flex-start; */
+            display: flex;
+            /* padding: 20px; */
+        }
+    </style>
 
 </head>
 
@@ -102,13 +118,14 @@
 
     <section class="products" id="products">
 
-         <div class="swiper product-slider">
+         <!-- <div class="swiper product-slider"> -->
 
-            <div class="swiper-wrapper">
+            <!-- <div class="swiper-wrapper"> -->
+                <div class="prod">
                 <%for(product of products){%>
                     <!-- <div style="float:left;"> -->
-                    <div class="swiper-slide box">
-                        <img src="/Images/<%=product.images%>" alt="" style="width:250px">
+                    <div class="box1">
+                        <center><img src="/Images/<%=product.images%>" alt="" width="200px" height="200px"></center>
                         <h3>
                             <%=product.name%>
                         </h3>
@@ -120,9 +137,10 @@
                         <!-- </div> -->
                     </div>
                     <%}%>
+                </div>
 
-            </div>
-        </div>
+            <!-- </div> -->
+        <!-- </div> -->
 
         </div>
 

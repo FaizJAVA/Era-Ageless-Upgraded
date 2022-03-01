@@ -24,9 +24,11 @@ module.exports= class Query{
         return new Promise((resolve, reject) => {
             pool.getConnection((err, con) => {
                 if (!err) {
-                    let sql = "update query set status=? WHERE  id =?";
-                    con.query(sql,[this.status,this.id] ,(err, result) => {
+                    let sql = "update query set status=? where customer_id =?;";
+                    con.query(sql,[this.status,this.customer_id] ,(err, result) => {
+                        console.log(result);
                         err ? reject(err) : resolve(result);
+                        con.release();
                     })
                 }
                 else {
