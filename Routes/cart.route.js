@@ -1,11 +1,11 @@
 const express = require('express');
 const Cart = require('../Model/cart.model');
 const cartController = require('../Controller/cart.controller');
-const userAuth = require('../Middleware/user-Auth');
+const userAuth = require('../Middleware/user-auth');
 const router = express.Router();
 
 router.get("/read-product/:pid",userAuth.isAuth,cartController.readProduct);
-router.post("/add-to-cart/:id:/qty",userAuth.isAuth,cartController.addToCart);
+router.get("/add-to-cart/:id/:qty",userAuth.isAuth,cartController.addToCart);
 router.get("/remove-from-cart/:pid",userAuth.isAuth,cartController.removeFromCart);
 // /cart/view-cart
 router.get("/view-cart",userAuth.isAuth,(request,response,next)=>{

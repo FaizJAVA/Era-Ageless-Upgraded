@@ -6,13 +6,13 @@ exports.userHomePage = (request, response) => {
 }
 
 exports.userLoginPage = (request, response) => {
-    response.render('User-view/login.ejs');
+    response.render('User-view/Login.ejs');
 }
 
 exports.userDashBoard=(request,response)=>{
     Product.viewProduct()
     .then(result=>{
-     response.render('../Views/User-view/user-dashboard',{
+     response.render('User-view/user-dashboard',{
          products:result
      })
 

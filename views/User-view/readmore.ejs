@@ -2,98 +2,104 @@
 
 <head>
        <%- include("../Partial/bootstrap.ejs")%>
+       <%- include("../Partial/boot.ejs")%>
+       
+              <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-       <style>
-              .card {
-                     box-shadow: 0 8px 40px 0 rgba(8, 8, 8, 0.2);
-                     max-width: 500px;
-                     max-height: 800px;
-                     margin: auto;
-                     text-align: center;
-                     font-family: arial;
-              }
+              <style>
+                     .card {
+                            box-shadow: 0 8px 40px 0 rgba(8, 8, 8, 0.2);
+                            max-width: 500px;
+                            max-height: 800px;
+                            margin: auto;
+                            text-align: center;
+                            font-family: arial;
+                     }
 
-              .price {
-                     color: grey;
-                     font-size: 22px;
-              }
+                     .price {
+                            color: grey;
+                            font-size: 22px;
+                     }
 
-              .card button {
-                     border-radius: 3%;
-                     outline: 0;
-                     padding: 12px;
-                     color: white;
-                     background-color: rgb(245, 146, 195);
-                     text-align: center;
-                     cursor: pointer;
-                     width: 100%;
-                     font-size: 18px;
-                     margin-top: 98px;
-              }
+                     .card button {
+                            border-radius: 3%;
+                            outline: 0;
+                            padding: 12px;
+                            color: white;
+                            background-color: rgb(245, 146, 195);
+                            text-align: center;
+                            cursor: pointer;
+                            width: 100%;
+                            font-size: 18px;
+                            margin-top: 98px;
+                     }
 
-              .card button:hover {
-                     opacity: 0.7;
-              }
+                     .card button:hover {
+                            opacity: 0.7;
+                     }
 
-              h1 {
-                     font-family: 'Times New Roman', Times, serif;
-              }
+                     h1 {
+                            font-family: 'Times New Roman', Times, serif;
+                     }
 
-              /* input{
+                     /* input{
                      border: 0px solid;
               } */
-       </style>
+              </style>
 </head>
 
 <body>
-                     <h2 style="text-align:center; padding:30px">Product Card</h2>
-              <input type="text" name="id" value="<%=productDetail.id%>" hidden>
-              <div class="card">
-                     <img src="/Images/<%=productDetail.images%>" alt="Denim Jeans" style="width:50%;height: 240px;">
-                     <h1>
-                            <%=productDetail.name%>
-                     </h1>
-                     <p>
-                            <class class="price">
-                                   <%=productDetail.price%>
-                            </class>
-                     </p>
-                     <p>
-                            <%=productDetail.description%>
-                     </p>
-                     <label for="qty">QUENTITY</label>
-                     <input type="number" name="qty" placeholder="Enter quantity">
-                     <%if(isProductAdded.length>0){%>
-                            <button class="btn btn-primary" onclick="removeFromCart('<%=productDetail.id%>',0)">Remove from cart</button>
-                            <%} else{%>
-                                   <button class="btn btn-primary" type="submit"
-                                          onclick="removeFromCart('<%=productDetail.id%>',1)">Add to cart</button>
+       <h2 style="text-align:center; padding:30px">Product Card</h2>
+       <input type="text" name="id" value="<%=productDetail.id%>" hidden>
+       <div class="card">
+              <img src="/Images/<%=productDetail.images%>" alt="Denim Jeans" style="width:50%;height: 240px;">
+              <h1>
+                     <%=productDetail.name%>
+              </h1>
+              <p>
+                     <class class="price">
+                            <%=productDetail.price%>
+                     </class>
+              </p>
+              <p>
+                     <%=productDetail.description%>
+              </p>
+              <label for="qty">QUENTITY</label>
+              <input type="number" id="qty" placeholder="Enter quantity">
+              <%if(isProductAdded.length>0){%>
+                     <button id="buuton" value="Remove from cart" class="btn btn-primary" onclick="removeFromCart('<%=productDetail.id%>',0)">Remove from cart</button>
+                     <%} else{%>
+                            <button id="button" value="Add to cart" class="btn btn-primary" type="submit"
+                                   onclick="removeFromCart('<%=productDetail.id%>',1)">Add to cart</button>
 
-                                   <%}%>
+                            <%}%>
 
 
-              </div>
-       
+       </div>
+
 </body>
 <script>
-       function removeFromCart(pid,value) {
+
+       function removeFromCart(pid, value) {
               // var buttonText = button.innerText;
-              if (value==0) {
+              // var button = document.getElementById("button").value;
+              if (value == 0) {
                      $.ajax({
                             url: "/cart/remove-from-cart/" + pid,
                             success: function (result) {
                                    alert("Item Removed From Cart..");
-                                   button.innerText = "Add To Cart";
+                                   // button.innerhtml = "Add to cart";
                             }
                      });
               }
-              else if(value==1){
-                     let quantity = document.getElementsByName("qty");
+              else if (value == 1) {
+                     let quantity = document.getElementById("qty").value;
                      $.ajax({
-                            url: "/cart/add-to-cart/" + pid +"/" + quantity,
+                            url: "/cart/add-to-cart/" + pid + "/" + quantity,
                             success: function (result) {
-                                   alert("Added to cart");
-                                   button.innerText = "Remove from cart";
+                                   alert("Added To Cart");
+                                   // button.innerhtml = "Add to cart";
+
                             }
                      });
               }

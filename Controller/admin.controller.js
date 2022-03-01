@@ -161,8 +161,9 @@ exports.sendEmail = (req,res)=>{
         }
         else{
             let q = new Query();
-            q.id = req.body.id;
+            q.customer_id = req.body.id;
             q.status = "solved";
+            console.log(q);
             q.update()
             .then(result=>{
                 res.redirect("/admin/Query");

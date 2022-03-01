@@ -1,3 +1,4 @@
+const res = require('express/lib/response');
 const Cart = require('../Model/cart.model');
 const Product = require('../Model/productmodel');
 exports.readProduct = (request, response, next) => {
@@ -13,9 +14,15 @@ exports.readProduct = (request, response, next) => {
           isProductAdded:isProductAdded
         });
       })
-      .catch()
+      .catch((err=>{
+        console.log(err);
+        response.send("Something went wrong");
+      }))
     })
-    .catch();
+    .catch(err=>{
+      console.log(err);
+      response.send("Somthing went wrong");
+    });
     
 }
 exports.removeFromCart = (request, response, next) => {
@@ -36,6 +43,9 @@ exports.removeFromCart = (request, response, next) => {
 }
 
 exports.addToCart = (request,response)=>{
+  console.log("Id" + request.params.id);
+  console.log("QTY" + request.params.qty);
+
   let cart = new Cart();
   cart.productId = request.params.id;
   cart.userId = request.session.current_user_id;
