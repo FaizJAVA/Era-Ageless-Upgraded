@@ -9,4 +9,5 @@ routeIndex.get('/product',indexControl.ProductPage);
 routeIndex.get('/categories',indexControl.CategoryPage);
 routeIndex.get('/reviews',indexControl.ReviewPage);
 
+
 module.exports=routeIndex;

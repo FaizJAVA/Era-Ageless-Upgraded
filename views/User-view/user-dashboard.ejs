@@ -91,11 +91,11 @@
                 <a href="#" class="btn">checkout</a>
             </div>
 
-            <form action="" class="login-form">
+            <!-- <form action="" class="login-form">
                 <div><img height="100px" width="100px" src="/Images/admin_logo.jpg" alt=""></div>
                 <input width="156px" type="button" value="Admin Login" class="btn">
                 <input width="110px" type="button" value="User Login" class="btn">
-            </form>
+            </form> -->
 
     </header>
 
@@ -124,8 +124,8 @@
                 <div class="prod">
                 <%for(product of products){%>
                     <!-- <div style="float:left;"> -->
-                    <div class="box1">
-                        <center><img src="/Images/<%=product.images%>" alt="" width="200px" height="200px"></center>
+                    <div class="box1" style="text-align: center; border-radius: 10px;">
+                        <center style="text-align: center;"><img src="/Images/<%=product.images%>" alt="" width="200px" height="200px" ></center>
                         <h3>
                             <%=product.name%>
                         </h3>

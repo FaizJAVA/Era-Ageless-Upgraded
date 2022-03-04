@@ -2,7 +2,6 @@ const Admin=require('../Model/adminmodel');
 const Order = require("../Model/ordermodel");
 const User = require("../Model/usermodel");
 const Query = require("../Model/querymodel");
-const res = require('express/lib/response');
 const nodemailer = require("nodemailer");
 // const startconnection= require("../Util/dbconnection");
 // const session = require('express-session');
@@ -87,7 +86,7 @@ exports.feedbackPage=(request,response)=>{
 exports.logOut = (request,response)=>{
        request.session.current_user = null;
        request.session.destroy();
-       response.redirect("/admin/login");
+       response.redirect("/");
    }
 exports.loginPost = (req,res)=>{
     let adminobj = new Admin(req.body.email,req.body.password);

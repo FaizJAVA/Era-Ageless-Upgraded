@@ -95,8 +95,8 @@ module.exports = class Product {
         return new Promise((resolve, reject) => {
             pool.getConnection((err, con) => {
                 if (!err) {
-                    let sql = "select category_id,category.name as c_name,product.id,product.name,price,description,qty,images from product inner join category on category.id=product.category_id;";
-                    con.query(sql,[id],(err, result) => {
+                    let sql = "select category_id,category.name as c_name,product.id,product.name,price,description,qty,images from product inner join category on category.id=product.category_id where product.id=?;";
+                    con.query(sql,[id*1],(err, result) => {
                         console.log(result);
                         err ? reject(err) : resolve(result);
                     })

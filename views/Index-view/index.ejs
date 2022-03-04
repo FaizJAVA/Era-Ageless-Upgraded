@@ -43,7 +43,7 @@
                 <label for="search-box" class="fas fa-search"></label>
             </form>
 
-            <!-- <div class="shopping-cart">
+            <div class="shopping-cart">
                 <div class="box">
                     <i class="fas fa-trash"></i>
                     <img src="/Images/NewImage/cart.jpg" alt="">
@@ -73,12 +73,12 @@
                 </div>
                 <div class="total"> total :225/- </div>
                 <a href="#" class="btn">checkout</a>
-            </div> -->
+            </div>
 
-            <form  class="login-form">
+            <form action="" class="login-form">
                 <div><img height="100px" width="100px" src="/Images/admin_logo.jpg" alt=""></div>
                 <a href="/admin/"><input width="156px" type="button" value="Admin Login" class="btn"></a>
-                <a href="user/login"><input width="110px" type="button" value="User Login" class="btn"></a>
+                <a href="/user/login"><input width="110px" type="button" value="User Login" class="btn"></a>
             </form>
 
     </header>
@@ -91,7 +91,8 @@
 
         <div class="content">
             <h3>Pocket friendly<span>Trusty</span> products for you</h3>
-            <p>ALL SPECIFIC COSMATIC ITEMS ARE AVAILABLE ON ERA-AGELESS</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam libero nostrum veniam facere tempore
+                nisi.</p>
             <a href="#" class="btn">shop now</a>
 
             <a href=""></a>
@@ -111,38 +112,46 @@
 
             <div class="box">
 
-                <img src="/Images/productImage/1.jpg" alt="">
+                <img src="/Images/<%=catlist[0].image%>" alt="">
                 <div class="content">
                     <div class="icons">
-                        <a href="#"> <i class="fas fa-user"></i> by user </a>
+                        <p>
+                            <%=catlist[0].name%>
+                        </p>
                     </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, sunt! ipsum dolor sit amet
-                        consectetur adipisicing elit. Veniam, expedita.</p>
-                    <a href="#" class="btn">read more</a>
+
+                    <p>
+                        <%=catlist[0].gender%> Products
+                    </p>
                 </div>
             </div>
 
             <div class="box">
-                <img src="/Images/productImage/2.jpg" alt="">
+                <img src="/Images/<%=catlist[1].image%>" alt="">
                 <div class="content">
                     <div class="icons">
-                        <a href="#"> <i class="fas fa-user"></i> by user </a>
+                        <!-- <a href="#"> <i class="fas fa-user"></i> by user </a> -->
+                        <p>
+                            <%=catlist[1].name%>
+                        </p>
                     </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, sunt! ipsum dolor sit amet
-                        consectetur adipisicing elit. Veniam, expedita.</p>
-                    <a href="#" class="btn">read more</a>
+                    <p>
+                        <%=catlist[1].gender%> Products
+                    </p>
                 </div>
             </div>
 
             <div class="box">
-                <img src="/Images/productImage/3.jpg" alt="">
+                <img src="/Images/<%=catlist[2].image%>" alt="">
                 <div class="content">
                     <div class="icons">
-                        <a href="#"> <i class="fas fa-user"></i> by user </a>
+                        <p>
+                            <%=catlist[2].name%>
+                        </p>
                     </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, sunt! ipsum dolor sit amet
-                        consectetur adipisicing elit. Veniam, expedita.</p>
-                    <a href="#" class="btn">read more</a>
+                    <p>
+                        <%=catlist[2].gender%> Products
+                    </p>
                 </div>
             </div>
 
@@ -161,9 +170,13 @@
             <div class="swiper-wrapper">
 
                 <div class="swiper-slide box">
-                    <img src="/Images/productImage/4.jpg" alt="">
-                    <h3>Mackup Kits</h3>
-                    <div class="price"> $4.99/- - 10.99/- </div>
+                    <img src="/Images/<%=productlist[0].images%>" alt="">
+                    <h3>
+                        <%=productlist[0].name%>
+                    </h3>
+                    <div class="price" style="font-size: medium;">
+                        <%=productlist[0].price%> rs.
+                    </div>
                     <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -171,13 +184,18 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star-half-alt"></i>
                     </div>
-                    <a href="/user/user.route" class="btn">add to cart</a>
+                    <a href="/user/login" class="btn">add to cart</a>
                 </div>
 
                 <div class="swiper-slide box">
-                    <img src="/Images/productImage/14.jpg" alt="">
-                    <h3>Lipstick</h3>
-                    <div class="price"> $4.99/- - 10.99/- </div>
+                    <img src="/Images/<%=productlist[1].images%>" alt="">
+
+                    <h3>
+                        <%=productlist[1].name%>
+                    </h3>
+                    <div class="price" style="font-size: medium;">
+                        <%=productlist[1].price%> rs.
+                    </div>
                     <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -185,27 +203,34 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star-half-alt"></i>
                     </div>
-                    <a href="#" class="btn">add to cart</a>
+                    <a href="/user/login" class="btn">add to cart</a>
                 </div>
 
                 <div class="swiper-slide box">
-                    <img src="/Images/productImage/6.jpg" alt="">
-                    <h3>Mackup tools </h3>
-                    <div class="price"> $4.99/- - 10.99/- </div>
-                    <div class="stars">
+                    <img src="/Images/<%=productlist[2].images%>" alt="">
+                    <h3>
+                        <%=productlist[2].name%>
+                    </h3>
+                    <div class="price" style="font-size: medium;">
+                        <%=productlist[2].price%> rs.
+                    </div>     <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star-half-alt"></i>
                     </div>
-                    <a href="#" class="btn">add to cart</a>
+                    <a href="/user/login" class="btn">add to cart</a>
                 </div>
 
                 <div class="swiper-slide box">
-                    <img src="/Images/productImage/15.jpg" alt="">
-                    <h3>Mackup Box</h3>
-                    <div class="price"> $4.99/- - 10.99/- </div>
+                    <img src="/Images/<%=productlist[3].images%>" alt="">
+                    <h3>
+                        <%=productlist[3].name%>
+                    </h3>
+                    <div class="price" style="font-size: medium;">
+                        <%=productlist[3].price%> rs.
+                    </div>
                     <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -213,7 +238,7 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star-half-alt"></i>
                     </div>
-                    <a href="#" class="btn">add to cart</a>
+                    <a href="/user/login" class="btn">add to cart</a>
                 </div>
 
             </div>
@@ -225,9 +250,14 @@
             <div class="swiper-wrapper">
 
                 <div class="swiper-slide box">
-                    <img src="/Images/productImage/20.jpg" alt="">
-                    <h3>Hair color</h3>
-                    <div class="price"> $4.99/- - 10.99/- </div>
+                    <img src="/Images/<%=productlist[4].images%>" alt="">
+
+                    <h3>
+                        <%=productlist[4].name%>
+                    </h3>
+                    <div class="price" style="font-size: medium;">
+                        <%=productlist[4].price%> rs.
+                    </div>
                     <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -235,13 +265,20 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star-half-alt"></i>
                     </div>
-                    <a href="#" class="btn">add to cart</a>
+                    <a href="/user/login" class="btn">add to cart</a>
+                    
                 </div>
 
                 <div class="swiper-slide box">
-                    <img src="/Images/productImage/9.jpg" alt="">
-                    <h3>Eye Liner</h3>
-                    <div class="price"> $4.99/- - 10.99/- </div>
+                    <img src="/Images/<%=productlist[5].images%>" alt="">
+
+                    <h3>
+                        <%=productlist[5].name%>
+                    </h3>
+                    <div class="price" style="font-size: medium;">
+                        <%=productlist[5].price%> rs.
+                    </div>
+
                     <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -249,13 +286,20 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star-half-alt"></i>
                     </div>
-                    <a href="#" class="btn">add to cart</a>
+                
+                    <a href="/user/login" class="btn">add to cart</a>
                 </div>
 
                 <div class="swiper-slide box">
-                    <img src="/Images/productImage/10.jpg" alt="">
-                    <h3>Natural glow</h3>
-                    <div class="price"> $4.99/- - 10.99/- </div>
+                    <img src="/Images/<%=productlist[6].images%>" alt="">
+
+                    <h3>
+                        <%=productlist[6].name%>
+                    </h3>
+                    <div class="price" style="font-size: medium;">
+                        <%=productlist[6].price%> rs.
+                    </div>
+
                     <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -263,13 +307,20 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star-half-alt"></i>
                     </div>
-                    <a href="#" class="btn">add to cart</a>
+                    <a href="/user/login" class="btn">add to cart</a>
+                
                 </div>
 
                 <div class="swiper-slide box">
-                    <img src="/Images/NewImage/mack1.jpg" alt="">
-                    <h3>Bold Liner</h3>
-                    <div class="price"> $4.99/- - 10.99/- </div>
+                    <img src="/Images/<%=productlist[7].images%>" alt="">
+
+                    <h3>
+                        <%=productlist[7].name%>
+                    </h3>
+                    <div class="price" style="font-size: medium;">
+                        <%=productlist[7].price%> rs.
+                    </div>
+
                     <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -277,7 +328,8 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star-half-alt"></i>
                     </div>
-                    <a href="#" class="btn">add to cart</a>
+                    <a href="/user/login" class="btn">add to cart</a>
+                
                 </div>
 
             </div>
@@ -301,7 +353,7 @@
 
                 <h3><a href="#" class="logo"><span
                             style="color: red; font-size: larger;">𝐄𝐑𝐀</span>-𝐀𝐆𝐄𝐋𝐄𝐒𝐒</a></h3>
-                <p>JOIN WITH SOCIAL MEDIA</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam, saepe.</p>
                 <div class="share">
                     <a href="#" class="fab fa-facebook-f"></a>
                     <a href="#" class="fab fa-twitter"></a>

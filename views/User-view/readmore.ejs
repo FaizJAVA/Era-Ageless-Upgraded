@@ -52,7 +52,7 @@
        <h2 style="text-align:center; padding:30px">Product Card</h2>
        <input type="text" name="id" value="<%=productDetail.id%>" hidden>
        <div class="card">
-              <img src="/Images/<%=productDetail.images%>" alt="Denim Jeans" style="width:50%;height: 240px;">
+              <img src="/Images/<%=productDetail.images%>" style="text-align: center; margin-left: 150px; border-radius: 10px;" width="200px" height="200px" alt="Denim Jeans" style="width:50%;height: 240px;">
               <h1>
                      <%=productDetail.name%>
               </h1>
@@ -67,11 +67,10 @@
               <label for="qty">QUENTITY</label>
               <input type="number" id="qty" placeholder="Enter quantity">
               <%if(isProductAdded.length>0){%>
-                     <button id="buuton" value="Remove from cart" class="btn btn-primary" onclick="removeFromCart('<%=productDetail.id%>',0)">Remove from cart</button>
+                     <button class="btn" id="buuton" value="Remove from cart" class="btn btn-primary" onclick="removeFromCart('<%=productDetail.id%>',0)">Remove from cart</button>
                      <%} else{%>
-                            <button id="button" value="Add to cart" class="btn btn-primary" type="submit"
+                            <button class="btn" id="button" value="Add to cart" class="btn btn-primary" type="submit"
                                    onclick="removeFromCart('<%=productDetail.id%>',1)">Add to cart</button>
-
                             <%}%>
 
 
@@ -88,7 +87,7 @@
                             url: "/cart/remove-from-cart/" + pid,
                             success: function (result) {
                                    alert("Item Removed From Cart..");
-                                   // button.innerhtml = "Add to cart";
+                                   button.innerText = "Add to cart";
                             }
                      });
               }
@@ -98,7 +97,7 @@
                             url: "/cart/add-to-cart/" + pid + "/" + quantity,
                             success: function (result) {
                                    alert("Added To Cart");
-                                   // button.innerhtml = "Add to cart";
+                                   button.innerText = "Remove from Cart";
 
                             }
                      });

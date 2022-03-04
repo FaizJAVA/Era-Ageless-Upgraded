@@ -1,13 +1,14 @@
 <html>
     <head>
-        <%-include('../Partial/boot.ejs');%>
+        <%-include('../Partial/admin_bootstrap.ejs');%>
         <link rel="stylesheet" href="/Css/user-login.css">
+        <link rel="stylesheet" href="/Css/style.css">
     </head>
     <body>
         <%-include('../Partial/menu.ejs')%>
-        <div class="container-fluid ">
-            <div class="row" style="margin-top: 120px;">
-                <div class="col-md-4 m-auto banner" style="margin-top: 120px;">
+        <!-- <div class="container-fluid "> -->
+            <!-- <div class="row" style="margin-top: 120px;"> -->
+                <!-- <div class="col-md-4 m-auto banner" style="margin-top: 120px;"> -->
                     <form action="/user/checkUser" method="post">
                         <div class="form-group">
                             <label for="">Email</label>
@@ -22,8 +23,8 @@
                         </div>
 
                     </form>
-                </div>
-            </div>
-        </div>
+                <!-- </div> -->
+            <!-- </div> -->
+        <!-- </div> -->
     </body>
 </html>
